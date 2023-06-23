@@ -1,8 +1,8 @@
-import MyImage from './loader.gif';
+import Loading from './loader.gif';
 
 const loadingPage = () => {
   const gif = new Image();
-  gif.src = MyImage;
+  gif.src = Loading;
   return gif;
 };
 
