@@ -1,9 +1,8 @@
 import Loading from './loader.gif';
 
 const loadingPage = () => {
-  const gif = new Image();
-  gif.src = Loading;
-  return gif;
+  const string = `<img src=${Loading} />`;
+  return string;
 };
 
 export default loadingPage;
