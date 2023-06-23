@@ -5,18 +5,20 @@ import displayContent from './displayContent.js';
 import loadingPage from './loadingPage.js';
 
 const form = document.querySelector('.form');
-const container = document.getElementById('container');
-let inputValue;
 
-form.addEventListener('submit', (e) => {
+form.addEventListener('submit', displayWeather);
+
+function displayWeather(e) {
+  const container = document.getElementById('container');
+  const input = form.querySelector('input');
+
   e.preventDefault();
   //display the weahter
   //0.during 1-4, display loading page in container
   container.innerHTML = loadingPage();
 
   //1. get the input value
-  const input = form.querySelector('input');
-  inputValue = input.value;
+  let inputValue = input.value;
   //2. fetch the data using input value
   fetchData(inputValue)
     .then((data) => {
@@ -30,4 +32,4 @@ form.addEventListener('submit', (e) => {
       console.error(error);
       container.innerHTML = `<h1>Error! Please write down again </h1>`;
     });
-});
+}
